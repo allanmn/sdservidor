@@ -23,6 +23,6 @@
 
         <!-- Mapping annotated class -->
         <mapping class="com.example.sdservidor.Models.User" />
-        <mapping class="com.example.sdservidor.Models.Session" />
+        <mapping class="com.example.sdservidor.Models.JwtSession" />
     </session-factory>
 </hibernate-configuration>

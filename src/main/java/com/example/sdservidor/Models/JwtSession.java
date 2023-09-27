@@ -3,7 +3,7 @@ package com.example.sdservidor.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "sessions")
+@Table(name = "jwt_sessions")
 public class JwtSession {
 
     @Id

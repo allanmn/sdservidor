@@ -16,7 +16,7 @@ public class User {
     private String nome;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Session> sessions = new ArrayList<>();
+    private List<JwtSession> sessions = new ArrayList<>();
 
     @Column(name = "email", unique = true)
     private String email;
@@ -76,15 +76,15 @@ public class User {
         this.tipo = tipo;
     }
 
-    public List<Session> getSessions() {
+    public List<JwtSession> getSessions() {
         return sessions;
     }
 
-    public void setSessions(List<Session> sessions) {
+    public void setSessions(List<JwtSession> sessions) {
         this.sessions = sessions;
     }
 
-    public void addSession(Session session) {
+    public void addSession(JwtSession session) {
         sessions.add(session);
         session.setUser(this);
     }

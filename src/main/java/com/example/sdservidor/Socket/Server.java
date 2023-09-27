@@ -29,6 +29,7 @@ public class Server {
             throw e;
         } finally {
             if (serverSocket != null && !serverSocket.isClosed()) {
+                System.out.println("fechou");
                 serverSocket.close();
             }
         }

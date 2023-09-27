@@ -1,17 +1,14 @@
 package com.example.sdservidor.Controllers;
 
-import com.example.sdservidor.*;
-import com.example.sdservidor.Helpers.HelperService;
+import com.example.sdservidor.Authentication.JwtService;
+import com.example.sdservidor.DAO.UserDAO;
+import com.example.sdservidor.Database.Database;
+import com.example.sdservidor.Main;
 import com.example.sdservidor.Models.ConnectModalResult;
-import com.example.sdservidor.Socket.Server;
-import javafx.animation.PauseTransition;
+import com.example.sdservidor.Models.User;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class InitialController {
@@ -21,16 +18,11 @@ public class InitialController {
     private Main main;
 
     public void initialize() {
-        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        Database.connect();
 
-        pause.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                openDialog();
-            }
-        });
+        initializeFirstUser();
 
-        pause.play();
+        openDialog();
     }
 
     public void openDialog() {
@@ -45,6 +37,15 @@ public class InitialController {
                 openDialog();
             }
         });
+    }
+
+    private void initializeFirstUser() {
+        try {
+            User user = new User("Admin", "admin@admin.com", JwtService.hashPassword("0192023A7BBD73250516F069DF18B500"), "admin");
+            new UserDAO().addUserIfNotExistByEmail(user);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public void setMain(Main main) {

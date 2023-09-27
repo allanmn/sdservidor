@@ -1,5 +1,9 @@
 package com.example.sdservidor.Socket;
 
+import com.example.sdservidor.Actions.ActionsHandler;
+import com.example.sdservidor.Senders.BaseSender;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,9 +12,11 @@ import java.net.Socket;
 
 public class ClientHandler implements Runnable {
     private final Socket clientSocket;
+    private final ObjectMapper objectMapper;
 
     public ClientHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
+        this.objectMapper = new ObjectMapper();
     }
 
     @Override
@@ -23,11 +29,15 @@ public class ClientHandler implements Runnable {
             String message = reader.readLine();
             System.out.println("Received message from client: " + message);
 
-            // Process the message (in this example, simply echoing it back)
-            String response = "Server received: " + message;
+            // Parse JSON message
+            JsonNode jsonNode = objectMapper.readTree(message);
+            String action = jsonNode.get("action").asText();
+
+            // Send action and data to ActionHandler
+            BaseSender response = ActionsHandler.handleAction(action, message);
 
             // Send the response back to the client
-            writer.println(response);
+            writer.println(response.toJson());
 
         } catch (IOException e) {
             e.printStackTrace();

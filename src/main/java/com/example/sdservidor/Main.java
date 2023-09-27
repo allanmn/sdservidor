@@ -13,9 +13,13 @@ import javafx.scene.control.Dialog;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main extends Application {
+    Server server = null;
 
+    private static final Map<String, String> loggedInUsers = new HashMap<>();
     Stage mainStage;
     @Override
     public void start(Stage stage) throws IOException {
@@ -36,7 +40,7 @@ public class Main extends Application {
 
     public void startServer(String port) {
         try {
-            Server server = new Server(Integer.parseInt(port));
+            server = new Server(Integer.parseInt(port));
 
             mainStage.hide();
 
@@ -71,5 +75,13 @@ public class Main extends Application {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static void storeLoggedInUser(String username, String jwt) {
+        loggedInUsers.put(jwt, username);
+    }
+
+    public static void removeLoggedInUser(String jwt) {
+        loggedInUsers.remove(jwt);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.sdservidor.Models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -12,6 +14,9 @@ public class User {
 
     @Column(name = "nome")
     private String nome;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Session> sessions = new ArrayList<>();
 
     @Column(name = "email", unique = true)
     private String email;
@@ -69,6 +74,19 @@ public class User {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public List<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
+    }
+
+    public void addSession(Session session) {
+        sessions.add(session);
+        session.setUser(this);
     }
 
     @Override

@@ -37,6 +37,14 @@ public class SessionDAO {
         }
     }
 
+    public JwtSession getSessionByToken(String token) {
+        try (Session currentSession = sessionFactory.openSession()) {
+            Query<JwtSession> query = currentSession.createQuery("FROM JwtSession WHERE token = :token", JwtSession.class);
+            query.setParameter("token", token);
+            return query.uniqueResult();
+        }
+    }
+
     public List<JwtSession> getSessionsByUserId(Long userId) {
         try (Session currentSession = sessionFactory.openSession()) {
             Query<JwtSession> query = currentSession.createQuery("FROM JwtSession WHERE user.id = :userId", JwtSession.class);

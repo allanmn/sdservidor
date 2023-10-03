@@ -40,8 +40,8 @@ public class ClientHandler implements Runnable {
             writer.println(response.toJson());
 
         } catch (IOException e) {
-            e.printStackTrace();
             try {
+                System.out.println("Socket closed!");
                 clientSocket.close();
             } catch (IOException ex) {
                 e.printStackTrace();

@@ -22,6 +22,10 @@ public class JwtSession {
         this.token = token;
     }
 
+    public JwtSession() {
+
+    }
+
     public Long getId() {
         return id;
     }

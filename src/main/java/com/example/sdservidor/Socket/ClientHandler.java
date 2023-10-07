@@ -25,20 +25,21 @@ public class ClientHandler implements Runnable {
             // Crie leitores e escritores para comunicação com o cliente
             BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             PrintWriter writer = new PrintWriter(clientSocket.getOutputStream(), true);
+            String message = null;
+            while ((message = reader.readLine()) != null) {
+                System.out.println("Received message from client: " + message);
 
-            String message = reader.readLine();
-            System.out.println("Received message from client: " + message);
+                // Parse JSON message
+                JsonNode jsonNode = objectMapper.readTree(message);
+                String action = jsonNode.get("action").asText();
 
-            // Parse JSON message
-            JsonNode jsonNode = objectMapper.readTree(message);
-            String action = jsonNode.get("action").asText();
+                // Send action and data to ActionHandler
+                BaseSender response = ActionsHandler.handleAction(action, message);
 
-            // Send action and data to ActionHandler
-            BaseSender response = ActionsHandler.handleAction(action, message);
-
-            // Send the response back to the client
-            writer.println(response.toJson());
-
+                // Send the response back to the client
+                System.out.println("Sending back to client: " + response.toJson());
+                writer.println(response.toJson());
+            }
         } catch (IOException e) {
             try {
                 System.out.println("Socket closed!");

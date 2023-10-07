@@ -1,5 +1,7 @@
 package com.example.sdservidor.Authentication;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.mindrot.jbcrypt.BCrypt;
@@ -27,9 +29,18 @@ public class JwtService {
 
     public static String createJwt(String subject) {
         return Jwts.builder()
+                .claim("user_id", subject)
                 .setSubject(subject)
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                 .compact();
+    }
+
+    public static long getUserIdFromJwt(String jwt) {
+        Jws<Claims> claims = Jwts.parser()
+                .setSigningKey(SECRET_KEY)
+                .parseClaimsJws(jwt);
+
+        return Long.parseLong(claims.getBody().get("user_id", String.class));
     }
 
     public static void validateJwt(String jwt) {

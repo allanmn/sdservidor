@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59ab7cd4-13e9-49c8-a9e4-c6ee21e9f04c" name="Changes" comment="store session">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/LogoutData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/LogoutReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/LogoutSender.java" afterDir="false" />
+    <list default="true" id="59ab7cd4-13e9-49c8-a9e4-c6ee21e9f04c" name="Changes" comment="logout">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Authentication/ValidateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/CreateUserReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/CreateUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/SuccessSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/DAO/SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/DAO/SessionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/JwtSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/JwtSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/Actions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Authentication/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Authentication/JwtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Socket/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Socket/ClientHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,10 +79,10 @@
       <recent name="C:\Users\allan\IdeaProjects\SDServidor\src\main\resources\com\example\sdservidor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.sdservidor.Senders.Data" />
       <recent name="com.example.sdservidor.Senders" />
       <recent name="com.example.sdservidor.Receivers.Data" />
       <recent name="com.example.sdservidor.Receivers" />
+      <recent name="com.example.sdservidor.Senders.Data" />
       <recent name="com.example.sdservidor.Helpers" />
     </key>
   </component>
@@ -117,6 +118,8 @@
       <workItem from="1696287433801" duration="2354000" />
       <workItem from="1696334753136" duration="174000" />
       <workItem from="1696362444755" duration="7000" />
+      <workItem from="1696362534460" duration="3924000" />
+      <workItem from="1696534396178" duration="4852000" />
     </task>
     <task id="LOCAL-00001" summary="database + login">
       <option name="closed" value="true" />
@@ -142,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695853864964</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="logout">
+      <option name="closed" value="true" />
+      <created>1696362548235</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696362548235</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +162,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="database + login" />
     <MESSAGE value="store session" />
-    <option name="LAST_COMMIT_MESSAGE" value="store session" />
+    <MESSAGE value="logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="logout" />
   </component>
 </project>

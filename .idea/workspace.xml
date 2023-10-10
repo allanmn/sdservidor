@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59ab7cd4-13e9-49c8-a9e4-c6ee21e9f04c" name="Changes" comment="logout">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Authentication/ValidateUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/CreateUserReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/CreateUserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/SuccessSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/Actions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Authentication/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Authentication/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Socket/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Socket/ClientHandler.java" afterDir="false" />
-    </list>
+    <list default="true" id="59ab7cd4-13e9-49c8-a9e4-c6ee21e9f04c" name="Changes" comment="init create user" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,6 +111,7 @@
       <workItem from="1696362444755" duration="7000" />
       <workItem from="1696362534460" duration="3924000" />
       <workItem from="1696534396178" duration="4852000" />
+      <workItem from="1696645893263" duration="30000" />
     </task>
     <task id="LOCAL-00001" summary="database + login">
       <option name="closed" value="true" />
@@ -153,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696362548235</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="init create user">
+      <option name="closed" value="true" />
+      <created>1696645915485</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696645915485</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +163,7 @@
     <MESSAGE value="database + login" />
     <MESSAGE value="store session" />
     <MESSAGE value="logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="logout" />
+    <MESSAGE value="init create user" />
+    <option name="LAST_COMMIT_MESSAGE" value="init create user" />
   </component>
 </project>

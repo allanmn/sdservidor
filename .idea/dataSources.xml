@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="database" uuid="9445d0f7-e2ac-4c39-a0ea-32b95320baf9">
+    <data-source source="LOCAL" name="database" uuid="8f7df2e1-001c-4d57-b570-5aa0bcdc79c7">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\allan\IdeaProjects\SDServidor\src\main\resources\com\example\sdservidor\database\database.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Allan\Documents\UTFPR\Sistemas Distribuídos\sdservidor\sdservidor\src\main\resources\com\example\sdservidor\database\database.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="b84ea616-dd50-4c43-8a15-8c2489f02fa5">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+C:/Users/Allan/Documents/UTFPR/Sistemas Distribuídos/sdservidor/sdservidor/src/main/resources/hibernate.cfg.xml</remarks>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:sdservidor\src\main\resources\com\example\sdservidor\database\database.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

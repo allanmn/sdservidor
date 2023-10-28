@@ -4,66 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Receivers/Data/ListUsersData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Receivers/ListUsersReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Senders/Data/ListUsersData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Senders/ListUsersSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9445d0f7-e2ac-4c39-a0ea-32b95320baf9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9445d0f7-e2ac-4c39-a0ea-32b95320baf9/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="list users">
+      <change afterPath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Receivers/Data/RemoveUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Receivers/RemoveUserReceiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/Actions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/ActionsHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Authentication/JwtService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Authentication/ValidateUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Controllers/ConnectDialogController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Controllers/InitialController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/DAO/SessionDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/DAO/UserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Database/Database.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Exceptions/ValidationException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Helpers/HelperService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Helpers/Validators.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Hibernate/HibernateUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/ConnectModalResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/JwtSession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/BaseReceiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/CreateUserReceiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/BaseData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/CreateUserData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/LoginData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/LogoutData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/IBaseReceiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/LoginReceiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/LogoutReceiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/BaseSender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/Data/BaseData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/Data/LoginData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/ErrorSender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/LoginSender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/LogoutSender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/SuccessSender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/UnknownActionSender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Socket/ClientHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Socket/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/connect_dialog.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/database/database.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/initial.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Senders/Data/ListUsersData.java" beforeDir="false" afterPath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Senders/Data/ListUsersData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,10 +54,10 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.sdservidor.Receivers.Data" />
+      <recent name="com.example.sdservidor.Receivers" />
       <recent name="com.example.sdservidor.Senders.Data" />
       <recent name="com.example.sdservidor.Senders" />
-      <recent name="com.example.sdservidor.Receivers" />
-      <recent name="com.example.sdservidor.Receivers.Data" />
     </key>
   </component>
   <component name="RunManager">
@@ -138,11 +83,30 @@
       <workItem from="1696972202870" duration="1809000" />
       <workItem from="1696984204556" duration="705000" />
       <workItem from="1697054869869" duration="6127000" />
-      <workItem from="1697298758195" duration="1749000" />
+      <workItem from="1697298758195" duration="2566000" />
+      <workItem from="1697579338956" duration="4428000" />
+      <workItem from="1697665608646" duration="2440000" />
+      <workItem from="1698165201399" duration="90000" />
+      <workItem from="1698189823186" duration="3613000" />
+      <workItem from="1698271018483" duration="2291000" />
+      <workItem from="1698522312372" duration="2056000" />
     </task>
+    <task id="LOCAL-00001" summary="list users">
+      <option name="closed" value="true" />
+      <created>1697300720680</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697300720680</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="list users" />
+    <option name="LAST_COMMIT_MESSAGE" value="list users" />
   </component>
 </project>

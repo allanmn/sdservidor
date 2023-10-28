@@ -5,19 +5,19 @@ import com.example.sdservidor.Models.User;
 import java.util.List;
 
 public class ListUsersData extends BaseData {
-    private List<User> usuarios;
+    private List<User> users;
 
-    public ListUsersData(List<User> usuarios) {
-        this.usuarios = usuarios;
+    public ListUsersData(List<User> users) {
+        this.users = users;
     }
 
     public ListUsersData() {}
 
-    public List<User> getUsuarios() {
-        return usuarios;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setUsuarios(List<User> usuarios) {
-        this.usuarios = usuarios;
+    public void setUsers(List<User> usuarios) {
+        this.users = usuarios;
     }
 }

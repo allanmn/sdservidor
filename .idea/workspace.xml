@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="list users">
-      <change afterPath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Receivers/Data/RemoveUserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Receivers/RemoveUserReceiver.java" afterDir="false" />
+    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/EditUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RequestUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/EditUserReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/RequestUserReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/Data/RequestUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/RequestUserSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Senders/Data/ListUsersData.java" beforeDir="false" afterPath="$PROJECT_DIR$/sdservidor/src/main/java/com/example/sdservidor/Senders/Data/ListUsersData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,13 +21,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -46,9 +43,8 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -79,34 +75,22 @@
       <updated>1696729974365</updated>
       <workItem from="1696729975457" duration="652000" />
       <workItem from="1696968696863" duration="1850000" />
-      <workItem from="1696972048161" duration="141000" />
-      <workItem from="1696972202870" duration="1809000" />
-      <workItem from="1696984204556" duration="705000" />
-      <workItem from="1697054869869" duration="6127000" />
-      <workItem from="1697298758195" duration="2566000" />
-      <workItem from="1697579338956" duration="4428000" />
-      <workItem from="1697665608646" duration="2440000" />
-      <workItem from="1698165201399" duration="90000" />
-      <workItem from="1698189823186" duration="3613000" />
-      <workItem from="1698271018483" duration="2291000" />
-      <workItem from="1698522312372" duration="2056000" />
+      <workItem from="1698524762777" duration="740000" />
     </task>
-    <task id="LOCAL-00001" summary="list users">
-      <option name="closed" value="true" />
-      <created>1697300720680</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1697300720680</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="list users" />
-    <option name="LAST_COMMIT_MESSAGE" value="list users" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

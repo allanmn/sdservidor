@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/EditUserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RequestUserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/EditUserReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/RequestUserReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/Data/RequestUserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/RequestUserSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="CRUD Users finished">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RegisterUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/RegisterUserReceiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +45,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.sdservidor.Receivers.Data" />
       <recent name="com.example.sdservidor.Receivers" />
+      <recent name="com.example.sdservidor.Receivers.Data" />
       <recent name="com.example.sdservidor.Senders.Data" />
       <recent name="com.example.sdservidor.Senders" />
     </key>
@@ -77,6 +72,15 @@
       <workItem from="1696968696863" duration="1850000" />
       <workItem from="1698524762777" duration="740000" />
     </task>
+    <task id="LOCAL-00001" summary="CRUD Users finished">
+      <option name="closed" value="true" />
+      <created>1698600692350</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698600692350</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,5 +96,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="CRUD Users finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD Users finished" />
   </component>
 </project>

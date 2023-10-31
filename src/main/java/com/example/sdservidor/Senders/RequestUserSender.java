@@ -6,7 +6,7 @@ import com.example.sdservidor.Senders.Data.RequestUserData;
 
 public class RequestUserSender extends BaseSender {
     public RequestUserSender(RequestUserData data) {
-        super(Actions.LIST_USERS, data, "Usuário recuperado com sucesso!", false);
+        super(Actions.REQUEST_USER, data, "Usuário recuperado com sucesso!", false);
     }
 
     public RequestUserSender() {

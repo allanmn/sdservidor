@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="CRUD Users finished">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RegisterUserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/RegisterUserReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RemoveSelfUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RequestAutoUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/RemoveSelfUserReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/RequestAutoUserReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/Data/RequestAutoUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/RequestAutoUserSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/RequestUserSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/RequestUserSender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +53,8 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.sdservidor.Receivers" />
       <recent name="com.example.sdservidor.Receivers.Data" />
-      <recent name="com.example.sdservidor.Senders.Data" />
       <recent name="com.example.sdservidor.Senders" />
+      <recent name="com.example.sdservidor.Senders.Data" />
     </key>
   </component>
   <component name="RunManager">
@@ -71,6 +77,7 @@
       <workItem from="1696729975457" duration="652000" />
       <workItem from="1696968696863" duration="1850000" />
       <workItem from="1698524762777" duration="740000" />
+      <workItem from="1698698750346" duration="3805000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD Users finished">
       <option name="closed" value="true" />

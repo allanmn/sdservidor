@@ -1,10 +1,12 @@
 package com.example.sdservidor.Receivers.Data;
 
 import com.example.sdservidor.Exceptions.ValidationException;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RequestUserData extends BaseData {
     private String token;
 
+    @JsonProperty("user_id")
     private long userId;
 
     public RequestUserData(String token, long userId) {

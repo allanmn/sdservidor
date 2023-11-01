@@ -9,10 +9,7 @@ import com.example.sdservidor.Helpers.HelperService;
 import com.example.sdservidor.Models.JwtSession;
 import com.example.sdservidor.Models.User;
 import com.example.sdservidor.Receivers.*;
-import com.example.sdservidor.Receivers.Data.CreateUserData;
-import com.example.sdservidor.Receivers.Data.EditUserData;
-import com.example.sdservidor.Receivers.Data.RegisterUserData;
-import com.example.sdservidor.Receivers.Data.RemoveUserData;
+import com.example.sdservidor.Receivers.Data.*;
 import com.example.sdservidor.Senders.*;
 import com.example.sdservidor.Senders.Data.ListUsersData;
 import com.example.sdservidor.Senders.Data.LoginData;
@@ -60,6 +57,9 @@ public class ActionsHandler {
                     break;
                 case "excluir-proprio-usuario":
                     response = handleRemoveSelfUser(data);
+                    break;
+                case "autoedicao-usuario":
+                    response = handleSelfEditUser(data);
                     break;
                 // Handle other actions as needed
                 default:
@@ -215,6 +215,46 @@ public class ActionsHandler {
             }
         } catch (ValidationException e) {
             response = new ErrorSender(request.getAction(), e.getMessage());
+        }
+
+        return response;
+    }
+
+    private static BaseSender handleSelfEditUser(String data) throws JsonProcessingException {
+        SelfEditUserReceiver request = SelfEditUserReceiver.fromJson(data, SelfEditUserReceiver.class);
+
+        BaseSender response = null;
+
+        if (request.getData().getSenha() != null) {
+            request.getData().setSenha(JwtService.hashPassword(request.getData().getSenha()));
+        }
+
+        long id = JwtService.getUserIdFromJwt(request.getData().getToken());
+
+
+        SelfEditUserData d = request.getData();
+
+        if (id != d.getId()) {
+            return response = new ErrorSender(request.getAction(), "Ação não autorizada.");
+        }
+
+        UserDAO dao = new UserDAO();
+
+        User user = dao.getUserById(d.getId());
+
+        user.setEmail(d.getEmail());
+        user.setName(d.getNome());
+
+        if (d.getSenha() != null) {
+            user.setPassword(d.getSenha());
+        }
+
+        String res = dao.updateUser(user);
+
+        if (res != null) {
+            response = new ErrorSender(request.getAction(), res);
+        } else {
+            response = new SuccessSender(request.getAction(), "Usuário atualizado com sucesso!");
         }
 
         return response;

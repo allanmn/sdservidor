@@ -20,4 +20,6 @@ public final class Actions {
     public static final String REQUEST_AUTO_USER = "pedido-proprio-usuario";
 
     public static final String REMOVE_SELF_USER = "excluir-proprio-usuario";
+
+    public static final String SELF_EDIT_USER = "autoedicao-usuario";
 }

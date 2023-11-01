@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="CRUD Users finished">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RemoveSelfUserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RequestAutoUserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/RemoveSelfUserReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/RequestAutoUserReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/Data/RequestAutoUserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/RequestAutoUserSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/SelfEditUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/SelfEditUserReceiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/RequestUserSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/RequestUserSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/Actions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/ActionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/ActionsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RemoveUserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RemoveUserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RequestUserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/RequestUserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/database/database.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +77,12 @@
       <workItem from="1696968696863" duration="1850000" />
       <workItem from="1698524762777" duration="740000" />
       <workItem from="1698698750346" duration="3805000" />
+      <workItem from="1698718001176" duration="296000" />
+      <workItem from="1698763840684" duration="1776000" />
+      <workItem from="1698770383184" duration="1205000" />
+      <workItem from="1698795131232" duration="3274000" />
+      <workItem from="1698830655193" duration="1000" />
+      <workItem from="1698875611183" duration="1398000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD Users finished">
       <option name="closed" value="true" />
@@ -87,7 +92,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698600692350</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="show user + self delete">
+      <option name="closed" value="true" />
+      <created>1698718067627</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698718067627</updated>
+    </task>
+    <task id="LOCAL-00003" summary="show user + self delete">
+      <option name="closed" value="true" />
+      <created>1698718122522</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698718122522</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

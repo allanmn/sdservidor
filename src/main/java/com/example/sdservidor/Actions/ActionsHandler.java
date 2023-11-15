@@ -2,18 +2,22 @@ package com.example.sdservidor.Actions;
 
 import com.example.sdservidor.Authentication.JwtService;
 import com.example.sdservidor.Authentication.ValidateUser;
+import com.example.sdservidor.DAO.PointDAO;
 import com.example.sdservidor.DAO.SessionDAO;
 import com.example.sdservidor.DAO.UserDAO;
 import com.example.sdservidor.Exceptions.ValidationException;
 import com.example.sdservidor.Helpers.HelperService;
 import com.example.sdservidor.Models.JwtSession;
+import com.example.sdservidor.Models.Point;
 import com.example.sdservidor.Models.User;
 import com.example.sdservidor.Receivers.*;
 import com.example.sdservidor.Receivers.Data.*;
 import com.example.sdservidor.Senders.*;
+import com.example.sdservidor.Senders.Data.ListPointsData;
 import com.example.sdservidor.Senders.Data.ListUsersData;
 import com.example.sdservidor.Senders.Data.LoginData;
 import com.example.sdservidor.Senders.Data.RequestAutoUserData;
+import com.example.sdservidor.Senders.Data.RequestPointData;
 import com.example.sdservidor.Senders.Data.RequestUserData;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.mindrot.jbcrypt.BCrypt;
@@ -43,11 +47,20 @@ public class ActionsHandler {
                 case "excluir-usuario":
                     response = handleRemoveUser(data);
                     break;
+                case "excluir-ponto":
+                    response = handleRemovePoint(data);
+                    break;
                 case "pedido-edicao-usuario":
                     response = handleRequestUser(data);
                     break;
+                case "pedido-edicao-ponto":
+                    response = handleRequestPoint(data);
+                    break;
                 case "edicao-usuario":
                     response = handleEditUser(data);
+                    break;
+                case "edicao-ponto":
+                    response = handleEditPoint(data);
                     break;
                 case "autocadastro-usuario":
                     response = handleRegisterUser(data);
@@ -61,7 +74,12 @@ public class ActionsHandler {
                 case "autoedicao-usuario":
                     response = handleSelfEditUser(data);
                     break;
-                // Handle other actions as needed
+                case "cadastro-ponto":
+                    response = handleCreatePoint(data);
+                    break;
+                case "listar-pontos":
+                    response = handleListPoints(data);
+                    break;
                 default:
                     response = handleUnknownAction(action);
             }
@@ -89,6 +107,33 @@ public class ActionsHandler {
             response = new ErrorSender(request.getAction(), res);
         } else {
             response = new SuccessSender(request.getAction(), "Usuário cadastrado com sucesso!");
+        }
+
+        return response;
+    }
+
+    private static BaseSender handleCreatePoint(String data) throws JsonProcessingException {
+        CreatePointReceiver request = CreatePointReceiver.fromJson(data, CreatePointReceiver.class);
+        BaseSender response = null;
+
+        long id = JwtService.getUserIdFromJwt(request.getData().getToken());
+
+        try {
+            if (ValidateUser.validate("admin", id)) {
+                CreatePointData d = request.getData();
+
+                Point point = new Point(d.getNome(), d.getObs());
+
+                String res = new PointDAO().addPoint(point);
+
+                if (res != null) {
+                    response = new ErrorSender(request.getAction(), res);
+                } else {
+                    response = new SuccessSender(request.getAction(), "Ponto cadastrado com sucesso!");
+                }
+            }
+        } catch (ValidationException e) {
+            response = new ErrorSender(request.getAction(), e.getMessage());
         }
 
         return response;
@@ -149,6 +194,30 @@ public class ActionsHandler {
         return response;
     }
 
+    private static BaseSender handleListPoints(String data) throws JsonProcessingException {
+        ListPointsReceiver request = ListPointsReceiver.fromJson(data, ListPointsReceiver.class);
+
+        BaseSender response = null;
+
+        long id = HelperService.getUserIdFromToken(request.getData().getToken());
+
+        try {
+            if (ValidateUser.validate("admin", id)) {
+                PointDAO dao = new PointDAO();
+
+                List<Point> points = dao.getAllPoints();
+
+                ListPointsData senderData = new ListPointsData(points);
+
+                response = new ListPointsSender(senderData);
+            }
+        } catch (ValidationException e) {
+            response = new ErrorSender(request.getAction(), e.getMessage());
+        }
+
+        return response;
+    }
+
     private static BaseSender handleListarUsers(String data) throws JsonProcessingException {
         ListUsersReceiver request = ListUsersReceiver.fromJson(data, ListUsersReceiver.class);
         BaseSender response = null;
@@ -189,6 +258,30 @@ public class ActionsHandler {
             RequestAutoUserData responseData = new RequestAutoUserData(user);
 
             response = new RequestAutoUserSender(responseData);
+        }
+
+        return response;
+    }
+
+    private static BaseSender handleRequestPoint(String data) throws JsonProcessingException {
+        RequestPointReceiver request = RequestPointReceiver.fromJson(data, RequestPointReceiver.class);
+
+        BaseSender response = null;
+
+        long id = JwtService.getUserIdFromJwt(request.getData().getToken());
+
+        try {
+            if (ValidateUser.validate("admin", id)) {
+                PointDAO dao = new PointDAO();
+
+                Point point = dao.getPointById(request.getData().getPontoId());
+
+                RequestPointData senderData = new RequestPointData(point);
+
+                response = new RequestPointSender(senderData);
+            }
+        } catch (ValidationException e) {
+            response = new ErrorSender(request.getAction(), e.getMessage());
         }
 
         return response;
@@ -255,6 +348,40 @@ public class ActionsHandler {
             response = new ErrorSender(request.getAction(), res);
         } else {
             response = new SuccessSender(request.getAction(), "Usuário atualizado com sucesso!");
+        }
+
+        return response;
+    }
+
+    private static BaseSender handleEditPoint(String data) throws JsonProcessingException {
+        EditPointReceiver request = EditPointReceiver.fromJson(data, EditPointReceiver.class);
+        BaseSender response = null;
+
+        long id = JwtService.getUserIdFromJwt(request.getData().getToken());
+
+        try {
+            if (ValidateUser.validate("admin", id)) {
+                EditPointData d = request.getData();
+
+                PointDAO dao = new PointDAO();
+
+                Point point = dao.getPointById(d.getPontoId());
+
+                point.setObs(d.getObs());
+                point.setName(d.getName());
+
+                String res = dao.updatePoint(point);
+
+                if (res != null) {
+                    response = new ErrorSender(request.getAction(), res);
+                } else {
+                    response = new SuccessSender(request.getAction(), "Ponto atualizado com sucesso!");
+                }
+            } else {
+                response = new ErrorSender(request.getAction(), "Ação não autorizada.");
+            }
+        } catch (ValidationException e) {
+            response = new ErrorSender(request.getAction(), e.getMessage());
         }
 
         return response;
@@ -372,6 +499,25 @@ public class ActionsHandler {
         return response;
     }
 
+    private static BaseSender handleRemovePoint(String data) throws JsonProcessingException {
+        RemovePointReceiver request = RemovePointReceiver.fromJson(data, RemovePointReceiver.class);
+
+        BaseSender response = null;
+
+        PointDAO dao = new PointDAO();
+
+        Point point = dao.getPointById(request.getData().getPontoId());
+
+        if (point != null) {
+            dao.deletePoint(point);
+
+            response = new SuccessSender(request.getAction(), "Ponto removido com sucesso!");
+        } else {
+            response = new ErrorSender(request.getAction(), "Ponto não encontrado.");
+        }
+
+        return response;
+    }
     private static UnknownActionSender handleUnknownAction(String action) {
         return new UnknownActionSender(action);
     }

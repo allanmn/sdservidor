@@ -3,12 +3,14 @@ package com.example.sdservidor.Actions;
 import com.example.sdservidor.Authentication.JwtService;
 import com.example.sdservidor.Authentication.ValidateUser;
 import com.example.sdservidor.DAO.PointDAO;
+import com.example.sdservidor.DAO.SegmentDAO;
 import com.example.sdservidor.DAO.SessionDAO;
 import com.example.sdservidor.DAO.UserDAO;
 import com.example.sdservidor.Exceptions.ValidationException;
 import com.example.sdservidor.Helpers.HelperService;
 import com.example.sdservidor.Models.JwtSession;
 import com.example.sdservidor.Models.Point;
+import com.example.sdservidor.Models.Segment;
 import com.example.sdservidor.Models.User;
 import com.example.sdservidor.Receivers.*;
 import com.example.sdservidor.Receivers.Data.*;
@@ -40,6 +42,9 @@ public class ActionsHandler {
                     break;
                 case "cadastro-usuario":
                     response = handleCadastroUser(data);
+                    break;
+                case "cadastro-segmento":
+                    response = handleCreateSegment(data);
                     break;
                 case "listar-usuarios":
                     response = handleListarUsers(data);
@@ -130,6 +135,35 @@ public class ActionsHandler {
                     response = new ErrorSender(request.getAction(), res);
                 } else {
                     response = new SuccessSender(request.getAction(), "Ponto cadastrado com sucesso!");
+                }
+            }
+        } catch (ValidationException e) {
+            response = new ErrorSender(request.getAction(), e.getMessage());
+        }
+
+        return response;
+    }
+
+    private static BaseSender handleCreateSegment(String data) throws JsonProcessingException {
+        CreateSegmentReceiver request = CreateSegmentReceiver.fromJson(data, CreateSegmentReceiver.class);
+        BaseSender response = null;
+
+        long id = JwtService.getUserIdFromJwt(request.getData().getToken());
+
+        try {
+            if (ValidateUser.validate("admin", id)) {
+                CreateSegmentData d = request.getData();
+
+                Segment segment = d.getSegmento();
+
+                SegmentDAO segmentDAO = new SegmentDAO();
+
+                String res = segmentDAO.saveOrUpdateSegment(segment);
+
+                if (res != null) {
+                    response = new ErrorSender(request.getAction(), res);
+                } else {
+                    response = new SuccessSender(request.getAction(), "Segmento cadastrado com sucesso!");
                 }
             }
         } catch (ValidationException e) {

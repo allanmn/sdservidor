@@ -25,5 +25,6 @@
         <mapping class="com.example.sdservidor.Models.User" />
         <mapping class="com.example.sdservidor.Models.JwtSession" />
         <mapping class="com.example.sdservidor.Models.Point" />
+        <mapping class="com.example.sdservidor.Models.Segment" />
     </session-factory>
 </hibernate-configuration>

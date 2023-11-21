@@ -1,6 +1,7 @@
 package com.example.sdservidor.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 
@@ -25,6 +26,7 @@ public class Segment {
     @Column(name = "distancia")
     private String distancia;
 
+    @JsonInclude(JsonInclude.Include.ALWAYS)
     @Column(name = "obs")
     private String obs;
 

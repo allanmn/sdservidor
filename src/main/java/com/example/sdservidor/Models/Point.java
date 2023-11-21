@@ -1,6 +1,7 @@
 package com.example.sdservidor.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 
@@ -16,6 +17,7 @@ public class Point {
     private String name;
 
     @Column(name = "obs")
+    @JsonInclude(JsonInclude.Include.ALWAYS)
     private String obs;
 
     public Point(String nome, String obs) {

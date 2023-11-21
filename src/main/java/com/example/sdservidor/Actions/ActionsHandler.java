@@ -16,10 +16,12 @@ import com.example.sdservidor.Receivers.*;
 import com.example.sdservidor.Receivers.Data.*;
 import com.example.sdservidor.Senders.*;
 import com.example.sdservidor.Senders.Data.ListPointsData;
+import com.example.sdservidor.Senders.Data.ListSegmentsData;
 import com.example.sdservidor.Senders.Data.ListUsersData;
 import com.example.sdservidor.Senders.Data.LoginData;
 import com.example.sdservidor.Senders.Data.RequestAutoUserData;
 import com.example.sdservidor.Senders.Data.RequestPointData;
+import com.example.sdservidor.Senders.Data.RequestSegmentData;
 import com.example.sdservidor.Senders.Data.RequestUserData;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.mindrot.jbcrypt.BCrypt;
@@ -49,8 +51,14 @@ public class ActionsHandler {
                 case "listar-usuarios":
                     response = handleListarUsers(data);
                     break;
+                case "listar-segmentos":
+                    response = handleListSegments(data);
+                    break;
                 case "excluir-usuario":
                     response = handleRemoveUser(data);
+                    break;
+                case "excluir-segmento":
+                    response = handleRemoveSegment(data);
                     break;
                 case "excluir-ponto":
                     response = handleRemovePoint(data);
@@ -58,11 +66,17 @@ public class ActionsHandler {
                 case "pedido-edicao-usuario":
                     response = handleRequestUser(data);
                     break;
+                case "pedido-edicao-segmento":
+                    response = handleRequestSegment(data);
+                    break;
                 case "pedido-edicao-ponto":
                     response = handleRequestPoint(data);
                     break;
                 case "edicao-usuario":
                     response = handleEditUser(data);
+                    break;
+                case "edicao-segmento":
+                    response = handleEditSegment(data);
                     break;
                 case "edicao-ponto":
                     response = handleEditPoint(data);
@@ -252,6 +266,29 @@ public class ActionsHandler {
         return response;
     }
 
+    private static BaseSender handleListSegments(String data) throws JsonProcessingException {
+        ListSegmentsReceiver request = ListSegmentsReceiver.fromJson(data, ListSegmentsReceiver.class);
+        BaseSender response = null;
+
+        long id = HelperService.getUserIdFromToken(request.getData().getToken());
+
+        try {
+            if (ValidateUser.validate("admin", id)) {
+                SegmentDAO dao = new SegmentDAO();
+
+                List<Segment> segments = dao.getAllSegments();
+
+                ListSegmentsData senderData = new ListSegmentsData(segments);
+
+                response = new ListSegmentsSender(senderData);
+            }
+        } catch (ValidationException e) {
+            response = new ErrorSender(request.getAction(), e.getMessage());
+        }
+
+        return response;
+    }
+
     private static BaseSender handleListarUsers(String data) throws JsonProcessingException {
         ListUsersReceiver request = ListUsersReceiver.fromJson(data, ListUsersReceiver.class);
         BaseSender response = null;
@@ -313,6 +350,32 @@ public class ActionsHandler {
                 RequestPointData senderData = new RequestPointData(point);
 
                 response = new RequestPointSender(senderData);
+            }
+        } catch (ValidationException e) {
+            response = new ErrorSender(request.getAction(), e.getMessage());
+        }
+
+        return response;
+    }
+
+    private static BaseSender handleRequestSegment(String data) throws JsonProcessingException {
+        RequestSegmentReceiver request = RequestSegmentReceiver.fromJson(data, RequestSegmentReceiver.class);
+
+        BaseSender response = null;
+
+        long id = JwtService.getUserIdFromJwt(request.getData().getToken());
+
+        try {
+            if (ValidateUser.validate("admin", id)) {
+                SegmentDAO dao = new SegmentDAO();
+
+                Segment segment = dao.getSegmentById(request.getData().getSegmentId());
+
+                RequestSegmentData responseData = new RequestSegmentData(segment);
+
+                response = new RequestSegmentSender(responseData);
+            } else {
+                response = new ErrorSender(request.getAction(), "Não autorizado.");
             }
         } catch (ValidationException e) {
             response = new ErrorSender(request.getAction(), e.getMessage());
@@ -421,6 +484,43 @@ public class ActionsHandler {
         return response;
     }
 
+    private static BaseSender handleEditSegment(String data) throws  JsonProcessingException {
+        EditSegmentReceiver request = EditSegmentReceiver.fromJson(data, EditSegmentReceiver.class);
+        BaseSender response = null;
+
+        long id = JwtService.getUserIdFromJwt(request.getData().getToken());
+
+        try {
+            if (ValidateUser.validate("admin", id)) {
+                EditSegmentData d = request.getData();
+
+                SegmentDAO dao = new SegmentDAO();
+
+                Segment segment = dao.getSegmentById(d.getSegmentId());
+
+                segment.setDirecao(d.getSegment().getDirecao());
+                segment.setDistancia(d.getSegment().getDistancia());
+                segment.setPonto_origem(d.getSegment().getPonto_origem());
+                segment.setPonto_destino(d.getSegment().getPonto_destino());
+                segment.setObs(d.getSegment().getObs());
+
+                String res = dao.saveOrUpdateSegment(segment);
+
+                if (res != null) {
+                    response = new ErrorSender(request.getAction(), res);
+                } else {
+                    response = new SuccessSender(request.getAction(), "Segmento atualizado com sucesso!");
+                }
+            } else {
+                response = new ErrorSender(request.getAction(), "Ação não autorizada.");
+            }
+        } catch (ValidationException e) {
+            response = new ErrorSender(request.getAction(), e.getMessage());
+        }
+
+        return response;
+    }
+
     private static BaseSender handleEditUser(String data) throws  JsonProcessingException {
         EditUserReceiver request = EditUserReceiver.fromJson(data, EditUserReceiver.class);
         BaseSender response = null;
@@ -508,6 +608,26 @@ public class ActionsHandler {
             }
         } else {
             response = handleError(request.getAction(), "Credenciais incorretas!");
+        }
+
+        return response;
+    }
+
+    private static BaseSender handleRemoveSegment(String data) throws JsonProcessingException {
+        RemoveSegmentReceiver request = RemoveSegmentReceiver.fromJson(data, RemoveSegmentReceiver.class);
+
+        BaseSender response = null;
+
+        SegmentDAO dao = new SegmentDAO();
+
+        Segment segment = dao.getSegmentById(request.getData().getSegmentId());
+
+        if (segment != null) {
+            dao.deleteSegment(segment);
+
+            response = new SuccessSender(request.getAction(), "Segmento removido com sucesso!");
+        } else {
+            response = new ErrorSender(request.getAction(), "Segmento não encontrado.");
         }
 
         return response;

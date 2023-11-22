@@ -34,8 +34,8 @@ public class CreateSegmentData extends BaseData {
             throw  new ValidationException("Direção é obrigatório");
         }
 
-        if (segmento.getDistancia() == null || segmento.getDistancia().isEmpty()) {
-            throw  new ValidationException("Distância é obrigatório");
+        if (segmento.getDistancia() == 0) {
+            throw  new ValidationException("Distância é obrigatório e não pode ser 0");
         }
 
         return true;

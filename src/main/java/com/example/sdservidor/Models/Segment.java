@@ -24,13 +24,13 @@ public class Segment {
     private String direcao;
 
     @Column(name = "distancia")
-    private String distancia;
+    private int distancia;
 
     @JsonInclude(JsonInclude.Include.ALWAYS)
     @Column(name = "obs")
     private String obs;
 
-    public Segment (Point ponto_destino, Point ponto_origem, String direcao, String distancia, String obs) {
+    public Segment (Point ponto_destino, Point ponto_origem, String direcao, int distancia, String obs) {
         this.ponto_destino = ponto_destino;
         this.ponto_origem = ponto_origem;
         this.direcao = direcao;
@@ -44,7 +44,7 @@ public class Segment {
         return direcao;
     }
 
-    public String getDistancia() {
+    public int getDistancia() {
         return distancia;
     }
 
@@ -64,7 +64,7 @@ public class Segment {
         return ponto_origem;
     }
 
-    public void setDistancia(String distancia) {
+    public void setDistancia(int distancia) {
         this.distancia = distancia;
     }
 

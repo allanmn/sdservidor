@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="CRUD segmentos">
+    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="cascade segmentos when deleting ponto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/database/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/Segment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/CreateSegmentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/CreateSegmentData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/EditSegmentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Receivers/Data/EditSegmentData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +89,8 @@
       <workItem from="1700150474262" duration="2929000" />
       <workItem from="1700180859311" duration="1662000" />
       <workItem from="1700322029844" duration="3870000" />
-      <workItem from="1700592613167" duration="3664000" />
+      <workItem from="1700592613167" duration="5258000" />
+      <workItem from="1700691990579" duration="462000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD Users finished">
       <option name="closed" value="true" />
@@ -138,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700608688005</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="cascade segmentos when deleting ponto">
+      <option name="closed" value="true" />
+      <created>1700612227358</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700612227359</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +170,7 @@
     <MESSAGE value="auto edit user" />
     <MESSAGE value="CRUD pontos" />
     <MESSAGE value="CRUD segmentos" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD segmentos" />
+    <MESSAGE value="cascade segmentos when deleting ponto" />
+    <option name="LAST_COMMIT_MESSAGE" value="cascade segmentos when deleting ponto" />
   </component>
 </project>

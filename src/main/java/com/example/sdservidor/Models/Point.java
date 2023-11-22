@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "pontos")
@@ -19,6 +20,14 @@ public class Point {
     @Column(name = "obs")
     @JsonInclude(JsonInclude.Include.ALWAYS)
     private String obs;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "ponto_origem", cascade = CascadeType.ALL)
+    private List<Segment> segmentosOrigem;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "ponto_destino", cascade = CascadeType.ALL)
+    private List<Segment> segmentosDestino;
 
     public Point(String nome, String obs) {
         this.name = nome;

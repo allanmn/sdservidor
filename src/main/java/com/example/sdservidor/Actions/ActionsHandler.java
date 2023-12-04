@@ -24,20 +24,19 @@ import com.example.sdservidor.Senders.Data.RequestPointData;
 import com.example.sdservidor.Senders.Data.RequestSegmentData;
 import com.example.sdservidor.Senders.Data.RequestUserData;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.List;
 import java.util.Objects;
 
 public class ActionsHandler {
 
-    public static BaseSender handleAction(String action, String data) {
+    public static BaseSender handleAction(String action, String data, String ip) {
         BaseSender response = null;
 
         try {
             switch (action) {
                 case "login":
-                    response = handleLogin(data);
+                    response = handleLogin(data, ip);
                     break;
                 case "logout":
                     response = handleLogout(data);
@@ -216,7 +215,7 @@ public class ActionsHandler {
         return response;
     }
 
-    private static BaseSender handleLogin(String data) throws JsonProcessingException {
+    private static BaseSender handleLogin(String data, String ip) throws JsonProcessingException {
         LoginReceiver request = LoginReceiver.fromJson(data, LoginReceiver.class);
         BaseSender response = null;
 
@@ -228,8 +227,18 @@ public class ActionsHandler {
             if (isValid) {
                 String token = JwtService.createJwt(String.valueOf(user.getId()), Objects.equals(user.getType(), "admin"));
 
-                JwtSession session = new JwtSession(user, token);
-                new SessionDAO().save(session);
+                JwtSession session = null;
+
+                SessionDAO sessionDAO = new SessionDAO();
+
+                session = sessionDAO.getSessionByIp(ip);
+
+                if (session == null) {
+                    session = new JwtSession(user, token, ip);
+                    sessionDAO.save(session);
+                } else {
+                    sessionDAO.updateJwtToken(session.getId(), token);
+                }
 
                 response = new LoginSender(new LoginData(token));
             } else {
@@ -503,6 +512,7 @@ public class ActionsHandler {
                 segment.setPonto_origem(d.getSegment().getPonto_origem());
                 segment.setPonto_destino(d.getSegment().getPonto_destino());
                 segment.setObs(d.getSegment().getObs());
+                segment.setBloqueado(d.getSegment().getBloqueado());
 
                 String res = dao.saveOrUpdateSegment(segment);
 

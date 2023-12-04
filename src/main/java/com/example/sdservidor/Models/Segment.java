@@ -26,16 +26,20 @@ public class Segment {
     @Column(name = "distancia")
     private int distancia;
 
+    @Column(name = "bloqueado")
+    private boolean bloqueado;
+
     @JsonInclude(JsonInclude.Include.ALWAYS)
     @Column(name = "obs")
     private String obs;
 
-    public Segment (Point ponto_destino, Point ponto_origem, String direcao, int distancia, String obs) {
+    public Segment (Point ponto_destino, Point ponto_origem, String direcao, int distancia, String obs, boolean bloqueado) {
         this.ponto_destino = ponto_destino;
         this.ponto_origem = ponto_origem;
         this.direcao = direcao;
         this.distancia = distancia;
         this.obs = obs;
+        this.bloqueado = bloqueado;
     }
 
     public Segment() {}
@@ -86,5 +90,13 @@ public class Segment {
 
     public void setPonto_origem(Point ponto_origem) {
         this.ponto_origem = ponto_origem;
+    }
+
+    public void setBloqueado(boolean bloqueado) {
+        this.bloqueado = bloqueado;
+    }
+
+    public boolean getBloqueado() {
+        return this.bloqueado;
     }
 }

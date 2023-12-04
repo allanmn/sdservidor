@@ -1,6 +1,8 @@
 package com.example.sdservidor.Socket;
 
 import com.example.sdservidor.Actions.ActionsHandler;
+import com.example.sdservidor.DAO.SessionDAO;
+import com.example.sdservidor.Models.JwtSession;
 import com.example.sdservidor.Senders.BaseSender;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.regex.Pattern;
 
 public class ClientHandler implements Runnable {
     private final Socket clientSocket;
@@ -34,7 +37,7 @@ public class ClientHandler implements Runnable {
                 String action = jsonNode.get("action").asText();
 
                 // Send action and data to ActionHandler
-                BaseSender response = ActionsHandler.handleAction(action, message);
+                BaseSender response = ActionsHandler.handleAction(action, message, clientSocket.getRemoteSocketAddress().toString().split(Pattern.quote(":"))[0].replace("/",""));
 
                 System.out.println();
 
@@ -43,6 +46,12 @@ public class ClientHandler implements Runnable {
                 writer.println(response.toJson());
             }
         } catch (IOException e) {
+            SessionDAO dao = new SessionDAO();
+
+            JwtSession session = dao.getSessionByIp(clientSocket.getRemoteSocketAddress().toString().split(Pattern.quote(":"))[0].replace("/",""));
+
+            dao.delete(session);
+
             System.out.println("Erro 1");
             e.printStackTrace();
             try {

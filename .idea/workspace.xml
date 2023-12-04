@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="distância segmento -&gt; inteiro">
+    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="changes database">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Controllers/ListSessionsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/list-sessions.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/ActionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/ActionsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Controllers/InitialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Controllers/InitialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/DAO/SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/DAO/SessionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/JwtSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/JwtSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/Segment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Socket/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Socket/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/database/database.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +44,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Allan/Documents/UTFPR/Sistemas Distribuídos/sdservidor&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Allan/Documents/UTFPR/Sistemas Distribuídos/sdservidor/sdservidor/src/main/resources/com/example/sdservidor&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -46,12 +56,15 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Allan\Documents\UTFPR\Sistemas Distribuídos\sdservidor\sdservidor\src\main\resources\com\example\sdservidor" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.sdservidor.Controllers" />
       <recent name="com.example.sdservidor.Senders" />
       <recent name="com.example.sdservidor.Senders.Data" />
       <recent name="com.example.sdservidor.Receivers" />
       <recent name="com.example.sdservidor.Receivers.Data" />
-      <recent name="com.example.sdservidor.DAO" />
     </key>
   </component>
   <component name="RunManager">
@@ -89,7 +102,9 @@
       <workItem from="1700322029844" duration="3870000" />
       <workItem from="1700592613167" duration="5258000" />
       <workItem from="1700691990579" duration="619000" />
-      <workItem from="1701190519330" duration="1396000" />
+      <workItem from="1701190519330" duration="3676000" />
+      <workItem from="1701294334225" duration="4993000" />
+      <workItem from="1701646346639" duration="2130000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD Users finished">
       <option name="closed" value="true" />
@@ -155,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700692594850</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="changes database">
+      <option name="closed" value="true" />
+      <created>1701214077107</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701214077107</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +202,7 @@
     <MESSAGE value="CRUD segmentos" />
     <MESSAGE value="cascade segmentos when deleting ponto" />
     <MESSAGE value="distância segmento -&gt; inteiro" />
-    <option name="LAST_COMMIT_MESSAGE" value="distância segmento -&gt; inteiro" />
+    <MESSAGE value="changes database" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes database" />
   </component>
 </project>

@@ -11,6 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.stage.Stage;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -19,10 +23,11 @@ import java.util.Map;
 public class Main extends Application {
     Server server = null;
 
-    private static final Map<String, String> loggedInUsers = new HashMap<>();
     Stage mainStage;
     @Override
     public void start(Stage stage) throws IOException {
+        disableHibernateConsoleLogging();
+
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("initial.fxml"));
 
         mainStage = stage;
@@ -38,16 +43,30 @@ public class Main extends Application {
         mainStage.show();
     }
 
+    private static void disableHibernateConsoleLogging() {
+        Logger hibernateLogger = Logger.getLogger("org.hibernate");
+        hibernateLogger.setLevel(Level.SEVERE); // Set the desired logging level, e.g., Level.SEVERE
+
+        // Disable console output for Hibernate
+        for (Handler handler : hibernateLogger.getParent().getHandlers()) {
+            if (handler instanceof ConsoleHandler) {
+                handler.setLevel(Level.SEVERE); // Set the desired console logging level
+            }
+        }
+    }
+
     public void startServer(String port) {
-        try {
             server = new Server(Integer.parseInt(port));
 
             mainStage.hide();
 
-            server.start();
-        } catch (IOException ex) {
-            HelperService.showErrorMessage(ex.getMessage());
-        }
+            new Thread(() -> {
+                try {
+                    server.start();
+                } catch (IOException e) {
+                    HelperService.showErrorMessage(e.getMessage());
+                }
+            }).start();
     }
 
     public static void main(String[] args) {
@@ -75,13 +94,5 @@ public class Main extends Application {
             e.printStackTrace();
             return null;
         }
-    }
-
-    public static void storeLoggedInUser(String username, String jwt) {
-        loggedInUsers.put(jwt, username);
-    }
-
-    public static void removeLoggedInUser(String jwt) {
-        loggedInUsers.remove(jwt);
     }
 }

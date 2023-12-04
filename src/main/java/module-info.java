@@ -13,7 +13,7 @@ module com.example.sdservidor {
 
     opens com.example.sdservidor to javafx.fxml;
     opens com.example.sdservidor.Controllers to javafx.fxml;
-    opens com.example.sdservidor.Models to org.hibernate.orm.core;
+    opens com.example.sdservidor.Models to org.hibernate.orm.core, javafx.base;
     exports com.example.sdservidor.Senders.Data to com.fasterxml.jackson.databind;
     exports com.example.sdservidor.Senders to com.fasterxml.jackson.databind;
     exports com.example.sdservidor.Receivers.Data to com.fasterxml.jackson.databind;

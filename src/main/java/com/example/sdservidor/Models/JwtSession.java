@@ -17,9 +17,13 @@ public class JwtSession {
     @Column(name = "token")
     private String token;
 
-    public JwtSession(User user, String token) {
+    @Column(name = "ip")
+    private String ip;
+
+    public JwtSession(User user, String token, String ip) {
         this.user = user;
         this.token = token;
+        this.ip = ip;
     }
 
     public JwtSession() {
@@ -48,5 +52,13 @@ public class JwtSession {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 }

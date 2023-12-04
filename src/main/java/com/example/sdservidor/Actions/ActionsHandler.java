@@ -21,12 +21,12 @@ import com.example.sdservidor.Senders.Data.ListUsersData;
 import com.example.sdservidor.Senders.Data.LoginData;
 import com.example.sdservidor.Senders.Data.RequestAutoUserData;
 import com.example.sdservidor.Senders.Data.RequestPointData;
+import com.example.sdservidor.Senders.Data.RequestRouteData;
 import com.example.sdservidor.Senders.Data.RequestSegmentData;
 import com.example.sdservidor.Senders.Data.RequestUserData;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class ActionsHandler {
 
@@ -67,6 +67,9 @@ public class ActionsHandler {
                     break;
                 case "pedido-edicao-segmento":
                     response = handleRequestSegment(data);
+                    break;
+                case "pedido-rotas":
+                    response = handleRequestRoute(data);
                     break;
                 case "pedido-edicao-ponto":
                     response = handleRequestPoint(data);
@@ -256,10 +259,6 @@ public class ActionsHandler {
 
         BaseSender response = null;
 
-        long id = HelperService.getUserIdFromToken(request.getData().getToken());
-
-        try {
-            if (ValidateUser.validate("admin", id)) {
                 PointDAO dao = new PointDAO();
 
                 List<Point> points = dao.getAllPoints();
@@ -267,10 +266,6 @@ public class ActionsHandler {
                 ListPointsData senderData = new ListPointsData(points);
 
                 response = new ListPointsSender(senderData);
-            }
-        } catch (ValidationException e) {
-            response = new ErrorSender(request.getAction(), e.getMessage());
-        }
 
         return response;
     }
@@ -341,6 +336,74 @@ public class ActionsHandler {
         }
 
         return response;
+    }
+
+    private static BaseSender handleRequestRoute(String data) throws  JsonProcessingException {
+        RequestRouteReceiver request = RequestRouteReceiver.fromJson(data, RequestRouteReceiver.class);
+
+        BaseSender response = null;
+
+        SegmentDAO dao = new SegmentDAO();
+
+        Point origem = request.getData().getPontoOrigem();
+
+        Point destino = request.getData().getPontoDestino();
+
+        List<Segment> segments = dao.getSegmentsNotBlocked();
+
+        segments = encontrarMelhorCaminho(segments, origem, destino);
+
+        RequestRouteData senderData = new RequestRouteData(segments);
+
+        response = new RequestRouteSender(senderData);
+
+        return response;
+    }
+
+    public static Map<Point, Integer> dijkstra(List<Segment> segmentos, Point pontoOrigem) {
+        Map<Point, Integer> distancias = new HashMap<>();
+        PriorityQueue<Point> filaPrioridade = new PriorityQueue<>(Comparator.comparingInt(distancias::get));
+
+        distancias.put(pontoOrigem, 0);
+        filaPrioridade.add(pontoOrigem);
+
+        while (!filaPrioridade.isEmpty()) {
+            Point atual = filaPrioridade.poll();
+
+            for (Segment segmento : segmentos) {
+                if (segmento.getPonto_origem().equals(pontoOrigem) && segmento.getPonto_destino().equals(atual)) {
+                    Point vizinho = segmento.getPonto_destino();
+                    int novaDistancia = distancias.get(atual) + segmento.getDistancia();
+
+                    if (novaDistancia < distancias.getOrDefault(vizinho, Integer.MAX_VALUE)) {
+                        distancias.put(vizinho, novaDistancia);
+                        filaPrioridade.add(vizinho);
+                    }
+                }
+            }
+        }
+
+        return distancias;
+    }
+
+    public static List<Segment> encontrarMelhorCaminho(List<Segment> segmentos, Point pontoOrigem, Point pontoDestino) {
+        Map<Point, Integer> distancias = dijkstra(segmentos, pontoOrigem);
+        List<Segment> melhorCaminho = new ArrayList<>();
+
+        Point atual = pontoDestino;
+
+        while (!atual.equals(pontoOrigem)) {
+            for (Segment segmento : segmentos) {
+                if (segmento.getPonto_destino().equals(atual)) {
+                    melhorCaminho.add(segmento);
+                    atual = segmento.getPonto_origem();
+                    break;
+                }
+            }
+        }
+
+        Collections.reverse(melhorCaminho);
+        return melhorCaminho;
     }
 
     private static BaseSender handleRequestPoint(String data) throws JsonProcessingException {

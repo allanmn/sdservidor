@@ -353,9 +353,7 @@ public class ActionsHandler {
 
         segments = encontrarMelhorCaminho(segments, origem, destino);
 
-        RequestRouteData senderData = new RequestRouteData(segments);
-
-        response = new RequestRouteSender(senderData);
+        response = new RequestRouteSender(segments);
 
         return response;
     }
@@ -371,7 +369,7 @@ public class ActionsHandler {
             Point atual = filaPrioridade.poll();
 
             for (Segment segmento : segmentos) {
-                if (segmento.getPonto_origem().equals(pontoOrigem) && segmento.getPonto_destino().equals(atual)) {
+                if (segmento.getPonto_origem().equals(atual)) {
                     Point vizinho = segmento.getPonto_destino();
                     int novaDistancia = distancias.get(atual) + segmento.getDistancia();
 
@@ -392,9 +390,15 @@ public class ActionsHandler {
 
         Point atual = pontoDestino;
 
+        Point last = null;
+
         while (!atual.equals(pontoOrigem)) {
             for (Segment segmento : segmentos) {
-                if (segmento.getPonto_destino().equals(atual)) {
+                if (last == null) {
+                    last = segmento.getPonto_origem();
+                }
+                if (segmento.getPonto_destino().equals(atual) && !segmento.getPonto_origem().equals(last)) {
+                    last = atual;
                     melhorCaminho.add(segmento);
                     atual = segmento.getPonto_origem();
                     break;

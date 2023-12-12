@@ -1,6 +1,7 @@
 package com.example.sdservidor.Senders;
 
 import com.example.sdservidor.Actions.Actions;
+import com.example.sdservidor.Models.RouteSegment;
 import com.example.sdservidor.Models.Segment;
 import com.example.sdservidor.Senders.Data.BaseData;
 import com.example.sdservidor.Senders.Data.RequestRouteData;
@@ -24,9 +25,9 @@ public class RequestRouteSender extends BaseSender {
 
     private boolean error;
     @JsonProperty("segmentos")
-    private List<Segment> segments;
+    private List<RouteSegment> segments;
 
-    public RequestRouteSender(List<Segment> segments) {
+    public RequestRouteSender(List<RouteSegment> segments) {
         this.action = Actions.REQUEST_ROUTE;
         this.message = "Rota recuperada com sucesso!";
         this.error = false;

@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="generate route">
+    <list default="true" id="3093b0ca-384c-4fb3-ad13-48f6ec5d9220" name="Changes" comment="generate routefix">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Models/RouteSegment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/ActionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Actions/ActionsHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/RequestRouteSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdservidor/Senders/RequestRouteSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdservidor/database/database.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +66,11 @@
       <recent name="C:\Users\Allan\Documents\UTFPR\Sistemas Distribuídos\sdservidor\sdservidor\src\main\resources\com\example\sdservidor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.sdservidor.Models" />
       <recent name="com.example.sdservidor.Senders.Data" />
       <recent name="com.example.sdservidor.Senders" />
       <recent name="com.example.sdservidor.Receivers.Data" />
       <recent name="com.example.sdservidor.Receivers" />
-      <recent name="com.example.sdservidor.Controllers" />
     </key>
   </component>
   <component name="RunManager">
@@ -117,6 +116,9 @@
       <workItem from="1701739458347" duration="364000" />
       <workItem from="1701818829036" duration="3909000" />
       <workItem from="1701899656788" duration="112000" />
+      <workItem from="1702240019153" duration="139000" />
+      <workItem from="1702388685602" duration="456000" />
+      <workItem from="1702396137989" duration="334000" />
     </task>
     <task id="LOCAL-00001" summary="CRUD Users finished">
       <option name="closed" value="true" />
@@ -206,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701653604021</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="generate routefix">
+      <option name="closed" value="true" />
+      <created>1702240066324</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702240066324</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +243,7 @@
     <MESSAGE value="changes database" />
     <MESSAGE value="list users logged + segment blocked" />
     <MESSAGE value="generate route" />
-    <option name="LAST_COMMIT_MESSAGE" value="generate route" />
+    <MESSAGE value="generate routefix" />
+    <option name="LAST_COMMIT_MESSAGE" value="generate routefix" />
   </component>
 </project>

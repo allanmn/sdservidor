@@ -8,10 +8,7 @@ import com.example.sdservidor.DAO.SessionDAO;
 import com.example.sdservidor.DAO.UserDAO;
 import com.example.sdservidor.Exceptions.ValidationException;
 import com.example.sdservidor.Helpers.HelperService;
-import com.example.sdservidor.Models.JwtSession;
-import com.example.sdservidor.Models.Point;
-import com.example.sdservidor.Models.Segment;
-import com.example.sdservidor.Models.User;
+import com.example.sdservidor.Models.*;
 import com.example.sdservidor.Receivers.*;
 import com.example.sdservidor.Receivers.Data.*;
 import com.example.sdservidor.Senders.*;
@@ -353,7 +350,13 @@ public class ActionsHandler {
 
         segments = encontrarMelhorCaminho(segments, origem, destino);
 
-        response = new RequestRouteSender(segments);
+        List<RouteSegment> routeSegments = new ArrayList<RouteSegment>();
+
+        segments.forEach((segment -> {
+            routeSegments.add(new RouteSegment(segment.getPonto_destino(), segment.getPonto_origem(), segment.getDirecao(), segment.getDistancia(), segment.getObs()));
+        }));
+
+        response = new RequestRouteSender(routeSegments);
 
         return response;
     }
